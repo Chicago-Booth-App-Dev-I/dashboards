@@ -32,6 +32,10 @@ def to_convert
 
   @currency_choice = params.fetch("first_currency")
   @currency_convert = params.fetch("second_currency")
+  
+  @currency_conversion_raw_data = open("https://api.exchangerate.host/convert?from=USD&to=EUR").read
+  @currency_conversion_parsed_data = JSON.parse(@currency_conversion_raw_data)
+  @conversion_rate = @currency_conversion_parsed_data.fetch("info").fetch("rate")
 
   render({:template => "forex/second_currency.html.erb"})
 
