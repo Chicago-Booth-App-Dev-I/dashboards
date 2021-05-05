@@ -1,4 +1,4 @@
-<h1> Convert <%= @currency_to_convert %> </h1>
+<h1> Convert <%= @currency_choice %> </h1>
 
 <p> Go
   <a href = "/forex"> back </a>
@@ -8,7 +8,7 @@
 <ul>
   <% @list_of_symbols.each do |a_symbol_2| %>
     <li>
-    <a href = "/forex"> Convert 1 <%= @currency_to_convert %> to <%= a_symbol_2 %>
+    <a href = "/forex/<%= @currency_choice%>/<%= a_symbol_2 %>"> Convert 1 <%= @currency_choice %> to <%= a_symbol_2 %> </a>
     </li>
     <% end %>
 </ul>
